@@ -208,7 +208,7 @@ void setup() {
   #endif
 
   #ifdef Final_work_reader
-    Wire.begin();                // join i2c bus with address #8
+    Wire.begin(8);                // join i2c bus with address #8
     Wire.onReceive(receiveEvent); // function that executes whenever data is received from writer
   #endif
 
@@ -334,7 +334,8 @@ void loop() {
 
 #endif
 
-#ifdef Final_work_writter /
+#ifdef Final_work_writter 
+   Wire.beginTransmission(8);
    if (Counter_200ms<5 and Counter_200ms>=0 and send_flag){
     if (IMU.accelerationAvailable() and IMU.gyroscopeAvailable() and IMU.magneticFieldAvailable()) {
       send_flag = false;
@@ -355,7 +356,8 @@ void loop() {
           for(int meas=0; meas <3; meas++){
             for(int axe=0; axe <3; axe++){
               float data = Measures[sample][meas][axe];
-              dtostrf(data,15,5, buffer);
+              //dtostrf(data,15,5, buffer);
+              sprintf(buffer,"%.4f",data);
               Serial.println(buffer);
               Wire.write(buffer);
             }           
