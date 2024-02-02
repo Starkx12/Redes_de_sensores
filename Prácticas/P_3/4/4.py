@@ -7,7 +7,7 @@ from matplotlib.animation import FuncAnimation
 x_axis = 0.0
 y_axis = 0.0
 z_axis = 0.0
-n_muestras = 100000
+n_muestras = 50000
 cont_muestras = 0
 cnt_limit = 5
 cnt = 0
@@ -129,10 +129,11 @@ try:
            cnt = (cnt+1)%cnt_limit           
            
            if(cont_muestras>1):
-               anim1 = FuncAnimation(fig1, updateP, interval=5000, repeat = True)
-               anim2 = FuncAnimation(fig2, updateV, interval=5000, repeat = True)
-               plt.pause(0.001)
+               anim2 = FuncAnimation(fig2, updateV, interval=100000, repeat = True)
+               anim1 = FuncAnimation(fig1, updateP, interval=100000, repeat = True,blit = False)               
+               
                plt.show()
+               plt.pause(0.001)
            
         else:
         # En caso de que no haya "/" en la cadena
