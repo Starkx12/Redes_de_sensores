@@ -7,7 +7,7 @@ from matplotlib.animation import FuncAnimation
 x_axis = 0.0
 y_axis = 0.0
 z_axis = 0.0
-n_muestras = 20
+n_muestras = 100000
 cont_muestras = 0
 cnt_limit = 5
 cnt = 0
@@ -65,9 +65,13 @@ def updateV(frame):
 ser = serial.Serial('COM9', 9600, timeout=1)  # Asegúrate de que 'COM9' sea el puerto correcto
 
 try:
+    print("Execute")
     while (cont_muestras < n_muestras) :
+        print("Numero de meuestra")
+        print(cont_muestras)
         # Leer datos del puerto serie
-        data =  ser.readline().decode('utf-8').strip()        
+        data =  ser.readline().decode('utf-8').strip() 
+        
         data_sub = data.split("/")
         
         # Verificar si hay al menos dos partes (indicando que hay un "/" presente)
@@ -100,8 +104,7 @@ try:
                        print(promedio[1])
                        print(promedio[2])
                        
-                       plt.scatter(cont_muestras, promedio[0])
-                       plt.pause(0.05)
+                       
                                            
                        print("Calculo de la varianza")
                        
@@ -119,13 +122,17 @@ try:
                        print(varianza[1])
                        print(varianza[2])
                        
-                       plt.show()
+                                          
+
                        
            cont_muestras = cont_muestras+1
            cnt = (cnt+1)%cnt_limit           
-           anim1 = FuncAnimation(fig1, updateP, interval=5000, repeat = True)
-           anim2 = FuncAnimation(fig2, updateV, interval=5000, repeat = True)
-           plt.show()
+           
+           if(cont_muestras>1):
+               anim1 = FuncAnimation(fig1, updateP, interval=5000, repeat = True)
+               anim2 = FuncAnimation(fig2, updateV, interval=5000, repeat = True)
+               plt.pause(0.001)
+               plt.show()
            
         else:
         # En caso de que no haya "/" en la cadena

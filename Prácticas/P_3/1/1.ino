@@ -36,9 +36,9 @@ void setup() {
       while (1);
   }   
 
-  Wire.begin();
+  //Wire.begin();
   
-  my_t1.setupTimer(1000000, t1Callback);
+  my_t1.setupTimer(50000, t1Callback);
   my_t1.timerStart();
   
 
@@ -66,36 +66,38 @@ void loop() {
       }
 
       
-        Wire.beginTransmission(8);
+        //Wire.beginTransmission(8);
 
         sprintf(i2cSend, "%.4f", x_axes);  
 
-        Wire.write("/");
+        //Wire.write("/");
         Serial.print("/");
 
-        Wire.write(i2cSend); 
+        //Wire.write(i2cSend); 
         Serial.print(i2cSend);
 
-        Wire.write("/");        
+        //Wire.write("/");        
         Serial.print("/");
 
         sprintf(i2cSend, "%.4f", y_axes); 
         
-        Wire.write(i2cSend);
+        //Wire.write(i2cSend);
         Serial.print(i2cSend);
 
-        Wire.write("/");        
+        //Wire.write("/");        
         Serial.print("/");
 
         sprintf(i2cSend, "%.4f", z_axes);  
 
-        Wire.write(i2cSend);
+        //Wire.write(i2cSend);
         Serial.print(i2cSend);
 
-        Wire.write("/");        
+        //Wire.write("/");        
         Serial.print("/");
 
-        Wire.endTransmission();
+        Serial.print('\n'); //added
+
+        //Wire.endTransmission();
 
 
 
