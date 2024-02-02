@@ -18,44 +18,46 @@ varianza = [0]*3
 
 fig1, ax1 = plt.subplots()
 fig2, ax2 = plt.subplots()
-x = [0,0,0,0,0]
+x2 = [0,0,0,0,0]
+x1 = [0,0,0,0,0]
 y1 = [0,0,0,0,0]
 y2 = [0,0,0,0,0]
 y3 = [0,0,0,0,0]
 y4 = [0,0,0,0,0]
 y5 = [0,0,0,0,0]
 y6 = [0,0,0,0,0]
-ln1, = ax1.plot(x, y1, '-',color='blue',label='ProemdioX')
-ln2, = ax1.plot(x, y2, '-',color='red',label='ProemdioY')
-ln3, = ax1.plot(x, y3, '-',color='green',label='ProemdioZ')
-ln4, = ax2.plot(x, y4, '-',color='blue',label='VarianzaX')
-ln5, = ax2.plot(x, y5, '-',color='red',label='VarianzaY')
-ln6, = ax2.plot(x, y6, '-',color='green',label='VarianzaZ')
+ln1, = ax1.plot(x1, y1, '-',color='blue',label='ProemdioX')
+ln2, = ax1.plot(x1, y2, '-',color='red',label='ProemdioY')
+ln3, = ax1.plot(x1, y3, '-',color='green',label='ProemdioZ')
+ln4, = ax2.plot(x2, y4, '-',color='blue',label='VarianzaX')
+ln5, = ax2.plot(x2, y5, '-',color='red',label='VarianzaY')
+ln6, = ax2.plot(x2, y6, '-',color='green',label='VarianzaZ')
 ax1.legend()
 ax2.legend()
 
 #FUNCIONES
 def updateP(frame):
-    global x,y1,y2,y3
-    x.append(cont_muestras) 
+    global x1,y1,y2,y3
+    x1.append(cont_muestras) 
     y1.append(promedio[0])
     y2.append(promedio[1])
     y3.append(promedio[2])
-    ln1.set_data(x, y1) 
-    ln2.set_data(x, y2) 
-    ln3.set_data(x, y3) 
+    ln1.set_data(x1, y1) 
+    ln2.set_data(x1, y2) 
+    ln3.set_data(x1, y3) 
     fig1.gca().relim()
     fig1.gca().autoscale_view() 
     return ln1,ln2,ln3
 
 def updateV(frame):
-    global y4,y5,y6    
+    global x2,y4,y5,y6   
+    x2.append(cont_muestras) 
     y4.append(varianza[0])
     y5.append(varianza[1])
     y6.append(varianza[2])
-    ln4.set_data(x, y4) 
-    ln5.set_data(x, y5) 
-    ln6.set_data(x, y6) 
+    ln4.set_data(x2, y4) 
+    ln5.set_data(x2, y5) 
+    ln6.set_data(x2, y6) 
     fig2.gca().relim()
     fig2.gca().autoscale_view() 
     return ln4,ln5,ln6
