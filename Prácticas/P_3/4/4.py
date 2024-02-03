@@ -2,6 +2,7 @@
 import serial
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+from matplotlib.transforms import BlendedGenericTransform
 
 #VARIABLES
 x_axis = 0.0
@@ -16,8 +17,13 @@ promedio = [0]*3
 suma_cuadrados_diferencias = [0]*3
 varianza = [0]*3
 
+
+
+
 fig1, ax1 = plt.subplots()
-fig2, ax2 = plt.subplots()
+ax1.set_xlabel('Number sample')
+ax1.set_title('DATA')
+
 x2 = [0,0,0,0,0]
 x1 = [0,0,0,0,0]
 y1 = [0,0,0,0,0]
@@ -29,38 +35,31 @@ y6 = [0,0,0,0,0]
 ln1, = ax1.plot(x1, y1, '-',color='blue',label='ProemdioX')
 ln2, = ax1.plot(x1, y2, '-',color='red',label='ProemdioY')
 ln3, = ax1.plot(x1, y3, '-',color='green',label='ProemdioZ')
-ln4, = ax2.plot(x2, y4, '-',color='blue',label='VarianzaX')
-ln5, = ax2.plot(x2, y5, '-',color='red',label='VarianzaY')
-ln6, = ax2.plot(x2, y6, '-',color='green',label='VarianzaZ')
+ln4, = ax1.plot(x1, y4, '*',color='blue',label='VarianzaX')
+ln5, = ax1.plot(x1, y5, '*',color='red',label='VarianzaY')
+ln6, = ax1.plot(x1, y6, '*',color='green',label='VarianzaZ')
 ax1.legend()
-ax2.legend()
 
-#FUNCIONES
-def updateP(frame):
-    global x1,y1,y2,y3
+#FUCNIONES
+
+def update(frame):
+    global x1,y1,y2,y3,x2,y4,y5,y6   
     x1.append(cont_muestras) 
     y1.append(promedio[0])
     y2.append(promedio[1])
     y3.append(promedio[2])
-    ln1.set_data(x1, y1) 
-    ln2.set_data(x1, y2) 
-    ln3.set_data(x1, y3) 
-    fig1.gca().relim()
-    fig1.gca().autoscale_view() 
-    return ln1,ln2,ln3
-
-def updateV(frame):
-    global x2,y4,y5,y6   
-    x2.append(cont_muestras) 
     y4.append(varianza[0])
     y5.append(varianza[1])
     y6.append(varianza[2])
-    ln4.set_data(x2, y4) 
-    ln5.set_data(x2, y5) 
-    ln6.set_data(x2, y6) 
-    fig2.gca().relim()
-    fig2.gca().autoscale_view() 
-    return ln4,ln5,ln6
+    ln1.set_data(x1, y1) 
+    ln2.set_data(x1, y2) 
+    ln3.set_data(x1, y3)     
+    ln4.set_data(x1, y4) 
+    ln5.set_data(x1, y5) 
+    ln6.set_data(x1, y6)
+    fig1.gca().relim()
+    fig1.gca().autoscale_view() 
+    return ln1,ln2,ln3,ln4,ln5,ln6
 
 ser = serial.Serial('COM9', 9600, timeout=1)  # Asegúrate de que 'COM9' sea el puerto correcto
 
@@ -77,6 +76,12 @@ try:
         # Verificar si hay al menos dos partes (indicando que hay un "/" presente)
         if len(data_sub) >= 2:
         # El substring estará entre el primer y segundo elemento de la lista
+           if(cnt==0):
+               mem_cnt = [0]*5
+               promedio = [0]*3
+               suma_cuadrados_diferencias = [0]*3
+               varianza = [0]*3
+               
            x_axis = data_sub[1]           
            y_axis = data_sub[2]
            z_axis = data_sub[3]            
@@ -85,8 +90,7 @@ try:
            mem_cnt[cnt] = datos_nuevos
            
            print(datos_nuevos)
-           print(cnt)
-           
+           print(cnt)           
            if(cnt==4):
                for i in range(int(cnt_limit)):
                    if i == 0:
@@ -121,19 +125,20 @@ try:
                        print(varianza[0])
                        print(varianza[1])
                        print(varianza[2])
-                       
+                   
+               if(cont_muestras>1):
+                   # anim2 = FuncAnimation(fig2, updateV, interval=100000, repeat = True,blit = False)
+                    nim1 = FuncAnimation(fig1, update, interval=100000, repeat = True,blit = False)              
+                    #anim = FuncAnimation(fig, update, interval=100000, repeat = True,blit = False) 
+                    plt.show()
+                    plt.pause(0.001)                        
                                           
 
                        
            cont_muestras = cont_muestras+1
            cnt = (cnt+1)%cnt_limit           
            
-           if(cont_muestras>1):
-               anim2 = FuncAnimation(fig2, updateV, interval=100000, repeat = True)
-               anim1 = FuncAnimation(fig1, updateP, interval=100000, repeat = True,blit = False)               
-               
-               plt.show()
-               plt.pause(0.001)
+           
            
         else:
         # En caso de que no haya "/" en la cadena
