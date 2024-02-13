@@ -126,10 +126,10 @@ try:
                        print(varianza[1])
                        print(varianza[2])
                    
-               if(cont_muestras>1):
-                   # anim2 = FuncAnimation(fig2, updateV, interval=100000, repeat = True,blit = False)
-                    nim1 = FuncAnimation(fig1, update, interval=100000, repeat = True,blit = False)              
-                    #anim = FuncAnimation(fig, update, interval=100000, repeat = True,blit = False) 
+               if(cont_muestras>2):
+                   
+                    nim1 = FuncAnimation(fig1, update, interval=100000, repeat = True,blit = False)             
+                     
                     plt.show()
                     plt.pause(0.001)                        
                                           
