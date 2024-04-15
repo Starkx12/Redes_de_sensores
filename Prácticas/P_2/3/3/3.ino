@@ -78,55 +78,55 @@ void run_inference_background()
           
 
           if(prediction.equals("Pitch_neg")){
-            digitalWrite(RED, HIGH);
-            digitalWrite(BLUE, LOW);
-            digitalWrite(GREEN, HIGH);
-            digitalWrite(LED_PWR, HIGH);
+            analogWrite(RED, 0);
+            analogWrite(BLUE, 255);
+            analogWrite(GREEN, 0);
+            digitalWrite(LED_PWR, 255);
             Serial.println("Pitch_neg");
 
           } else if(prediction.equals("Pitch_pos")){
-            digitalWrite(RED, LOW);
-            digitalWrite(BLUE, LOW);
-            digitalWrite(GREEN, HIGH);
-            digitalWrite(LED_PWR, LOW);
+            analogWrite(RED, 255);
+            analogWrite(BLUE, 255);
+            analogWrite(GREEN, 0);
+            digitalWrite(LED_PWR, 0);
             Serial.println("Pitch_pos");
 
           } else if(prediction.equals("Roll_neg")){
 
-            digitalWrite(RED, HIGH);
-            digitalWrite(BLUE, LOW);
-            digitalWrite(GREEN, LOW);
+            analogWrite(RED, 0);
+            analogWrite(BLUE, 0);
+            analogWrite(GREEN, 255);
             digitalWrite(LED_PWR, HIGH);
             Serial.println("Roll_neg");
 
           } else if(prediction.equals("Roll_pos")){
 
-            digitalWrite(RED, HIGH);
-            digitalWrite(BLUE, LOW);
-            digitalWrite(GREEN, LOW);
+            analogWrite(RED, 0);
+            analogWrite(BLUE, 255);
+            analogWrite(GREEN, 255);
             digitalWrite(LED_PWR, LOW);
             Serial.println("Roll_pos");
 
           } else if(prediction.equals("Yaw_neg")){
 
-            digitalWrite(RED, HIGH);
-            digitalWrite(BLUE, HIGH);
-            digitalWrite(GREEN, LOW);
+            analogWrite(RED, 200);
+            analogWrite(BLUE, 0);
+            analogWrite(GREEN, 255);
             digitalWrite(LED_PWR, HIGH);
             Serial.println("Yaw_neg");
 
           } else if(prediction.equals("Yaw_pos")){
 
-            digitalWrite(RED, LOW);
-            digitalWrite(BLUE, HIGH);
-            digitalWrite(GREEN, LOW);
+            analogWrite(RED, 255);
+            analogWrite(BLUE, 0);
+            analogWrite(GREEN, 255);
             digitalWrite(LED_PWR, LOW);
             Serial.println("Yaw_pos");
 
           } else {
-            digitalWrite(RED, HIGH);
-            digitalWrite(BLUE, HIGH);
-            digitalWrite(GREEN, HIGH);
+            analogWrite(RED, 255);
+            analogWrite(BLUE, 255);
+            analogWrite(GREEN, 255);
             digitalWrite(LED_PWR, HIGH);
             Serial.println("UNKNOWN");
           }

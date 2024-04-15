@@ -9,9 +9,9 @@ float x, y, z;
 
 BLEService testService( BLE_UUID_TEST_SERVICE );
 // BLE LED Switch Characteristic 
-BLEFloatCharacteristic accelerationCharacteristic_X( BLE_UUID_ACCELERATION_X, BLERead | BLENotify );
-BLEFloatCharacteristic accelerationCharacteristic_Y( BLE_UUID_ACCELERATION_Y, BLERead | BLENotify );
-BLEFloatCharacteristic accelerationCharacteristic_Z( BLE_UUID_ACCELERATION_Z, BLERead | BLENotify );
+BLEStringCharacteristic accelerationCharacteristic_X( BLE_UUID_ACCELERATION_X, BLERead | BLENotify,12 );
+BLEStringCharacteristic accelerationCharacteristic_Y( BLE_UUID_ACCELERATION_Y, BLERead | BLENotify,12 );
+BLEStringCharacteristic accelerationCharacteristic_Z( BLE_UUID_ACCELERATION_Z, BLERead | BLENotify,12 );
 
 void setup() {
 
@@ -68,11 +68,11 @@ void loop() {
        if (IMU.accelerationAvailable()) {
       IMU.readAcceleration(x, y, z);
       Serial.println(x);
-      accelerationCharacteristic_X.writeValue( x );
+      accelerationCharacteristic_X.writeValue( String(x) );
       Serial.println(y);
-      accelerationCharacteristic_Y.writeValue( y );
+      accelerationCharacteristic_Y.writeValue( String(y) );
       Serial.println(z);
-      accelerationCharacteristic_Z.writeValue( z );
+      accelerationCharacteristic_Z.writeValue( String(z) );
      }      
     }
 

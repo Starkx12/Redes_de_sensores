@@ -61,7 +61,7 @@ def update(frame):
     fig1.gca().autoscale_view() 
     return ln1,ln2,ln3,ln4,ln5,ln6
 
-ser = serial.Serial('COM9', 9600, timeout=1)  # Asegúrate de que 'COM9' sea el puerto correcto
+ser = serial.Serial('COM15', 9600, timeout=1)  # Asegúrate de que 'COM9' sea el puerto correcto
 
 try:
     print("Execute")

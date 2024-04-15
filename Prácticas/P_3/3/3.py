@@ -57,7 +57,7 @@ def almacenar_datos_en_txt(datos, nombre_archivo):
 
 
 # Configurar el puerto serie
-ser = serial.Serial('COM9', 9600, timeout=1)  # Asegúrate de que 'COM9' sea el puerto correcto
+ser = serial.Serial('COM15', 9600, timeout=1)  # Asegúrate de que 'COM9' sea el puerto correcto
 
 try:
     while cont_muestras <n_muestras :

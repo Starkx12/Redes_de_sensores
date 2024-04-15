@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP32 Web Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="refresh" content="10">
+  <script>
+    // Initialize the date to the current date and time
+    let date = new Date();
+
+    // Function to reset the time to 00:00:00
+    function resetTime() {
+      date.setHours(0, 0, 0, 0);
+      displayDate();
+    }
+
+    // Function to display the current date and time in the HTML
+    function displayDate() {
+      document.getElementById("date").innerHTML = date.toLocaleString();
+    }
+
+    // Update the displayed date and time every second
+    setInterval(displayDate, 100);
+  </script>
+</head>
+<body onload="displayDate()">
+  <h1>ESP32 Web Server</h1>
+  <p id="date"></p>
+  <button onclick="resetTime()">Reset Time</button>
+</body>
+</html>
