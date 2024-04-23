@@ -10,4 +10,4 @@ Mediante la consola se puede cambiar el tipo de análisis desarrollado:
 ## Análisis visual
 La imágen inferior muestra el comportamiento del aceleroemtro en el eje Z tras 30 repeticiones 
 de puntillas.
-[accZ](C:\Users\Usuario\Desktop\accZ.png)
+[accZ](img\accZ.png)
