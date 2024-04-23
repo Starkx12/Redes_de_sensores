@@ -177,39 +177,7 @@ def get_angle(data,time,split_time) :
         
     return max_angle
 
-def get_mean_angle(data,time,split_time,tol):
-    time_angle =[]
-    mean_angle =[]
-    
-    for time_range in split_time:
-        
-        #########################
-        t_min = time_range[0]
-        t_max = time_range[1]
-        
-        idx_t_min = time.index(t_min)
-        idx_t_max =  time.index(t_max) 
-        
-        ######################### 
-        max_angle = math.atan(max(data[idx_t_min:idx_t_max]))*360/(2*math.pi)   
-        
-        ########################
-        mean_value =0
-        num_idx =0
-        for data in data_max_splited:
-            mean_value+=data
-            num_idx+=1
-            if abs(data-max(data_splited))> tol:
-                
-                idx_mean =  data_max_splited.index(data)
-                idx_mean = time_max_splited[idx_mean]
-                
-                time_angle.append(idx_mean-time_splited[0])
-                mean_angle.append(math.atan(mean_value/(num_idx+1)))
-                break
-        
-    return time_angle,mean_angle            
-        
+
 
 #Main theta = f(wy,az) wy = gyroscopo y az = aceleracion en z
 
@@ -286,12 +254,7 @@ elif select ==2:
 elif select ==3:         
     excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\3\Puntillas.a3de23c6a901.csv'
     #excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\Dataset\Dataset\10\Puntillas.fb41b249e346.csv'
-    time, accX, accY, accZ, gyrX, gyrY, gyrZ = Get_timelapse(excel_path)
-    # for i in range(len(time)):
-    #     accX[i] *= -1
-    #     accY[i] *= -1
-    #     accZ[i] *= -1
-        
+    time, accX, accY, accZ, gyrX, gyrY, gyrZ = Get_timelapse(excel_path)        
         
     n_smooth = 20
     accX = smooth_data(accX,n_smooth)
@@ -305,17 +268,14 @@ elif select ==3:
     show_splited(accX,time,time_split,1)
     
     time_info,time_range = get_time(accX,time,time_split)
-    max_angle = get_angle(accX,time,time_split)
-    time_angle,mean_angle = get_mean_angle(accX,time,time_split,0.05)
+    max_angle = get_angle(accX,time,time_split)   
     print(time_info)
     print("**********")
     print(time_range)
     print("**********")
     print(max_angle)
     print("**********")
-    # print(time_angle)
-    # print("**********")
-    # print(mean_angle)
+
    
     
    
