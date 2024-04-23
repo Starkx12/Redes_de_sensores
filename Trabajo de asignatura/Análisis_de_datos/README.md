@@ -10,4 +10,9 @@ Mediante la consola se puede cambiar el tipo de análisis desarrollado:
 ## Análisis visual
 La imágen inferior muestra el comportamiento del aceleroemtro en el eje Z tras 30 repeticiones 
 de puntillas.
-[accZ](C:\Users\Usuario\Desktop\accZ.png)
+![img\accZ.png](https://github.com/Starkx12/Redes_de_sensores/blob/main/Trabajo%20de%20asignatura/An%C3%A1lisis_de_datos/img/accZ.png)
+
+## Análisis del gradiente
+La imágen inferior muestra el comportamiento de la derivada del aceleroemtro en el eje Z tras 30 repeticiones 
+de puntillas.
+![img\accZdt.png](https://github.com/Starkx12/Redes_de_sensores/blob/main/Trabajo%20de%20asignatura/An%C3%A1lisis_de_datos/img/accZdt.png)
