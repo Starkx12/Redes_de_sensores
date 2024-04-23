@@ -1,4 +1,4 @@
-# Prácticas de redes de sensore
+# Prácticas de redes de sensores
 ## Introducción
 Esta carpeta contiene las prácticas realizadas de redes de sensores.
 
