@@ -13,7 +13,7 @@ Para realizar la recolección de los datos den diferentes csv se deben seguir lo
 7. Para parar pulsar la tecla 't'.
 8. Los datos quedan almacenados en un archivo csv con un id único.
 
-# Funcionamiento del programa "Get_Data.ino"
+## Funcionamiento del programa "Get_Data.ino"
 La secuencia de funcionamiento de este programa es:
 1. Inicialización de las variables, el puerto serie y del sensor "IMU".
 2. Cuando el dispositivo recibe por el puerto serie el comando de "k", este empieza a mandar con
