@@ -18,3 +18,4 @@ El funcionamiento del programa es el siguiente:
 7. Se aplica la MEF mediante umbrales aplicados a los datos de los diferentes sensores.
 8. Cuando la MEF permanece un tiempo en repsoso se resetea todo para evitar acumular errores.
 9. Se envian los datos recapitulados mediante la comunicación BLE.
+## Diagrama de funcionamiento
