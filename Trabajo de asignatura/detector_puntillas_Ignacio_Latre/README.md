@@ -7,4 +7,14 @@ movimiento de puntillas, obtniendo los siguientes datos:
 * Ángulo mínimo (mientras aguanta de puntillas).
 * Ángulo medio (mientras aguanta de puntillas).
 Tras esto se envian los datos recopilados median BLE.
-##Explicación del código
+## Explicación del código
+El funcionamiento del programa es el siguiente:
+1. Se incluyen las librerías externas.
+2. Se inicializan los defines, las variables globales, la MEF, la interrupción y las carácteristicas de BLE.
+3. Se inicializa el puerto serie, la comununicación BLE, el sensor y la interrupción periodica de 50Hz.
+4. Dentro del bucle infinito se incializan las variables locales y se comprueba la conexión BLE.
+5. Se comprueba si se quiere resetar el dispositivo mediante la comunicación BLE.
+6. Se reopilan los datos de los sensores, se filtran y se saturan.
+7. Se aplica la MEF mediante umbrales aplicados a los datos de los diferentes sensores.
+8. Cuando la MEF permanece un tiempo en repsoso se resetea todo para evitar acumular errores.
+9. Se envian los datos recapitulados mediante la comunicación BLE.
