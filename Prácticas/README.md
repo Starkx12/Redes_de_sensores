@@ -12,8 +12,8 @@ Las prácticas son:
 
 ## Requisitos
 Para la inferencia de estas prácticas se requiere:
-*Arduino IDE.
-*Spyder.
-*Arduino Nano 22 BLE.
-*ESP32.
+* Arduino IDE.
+* Spyder.
+* Arduino Nano 22 BLE.
+* ESP32.
 
