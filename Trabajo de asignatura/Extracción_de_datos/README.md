@@ -1,8 +1,8 @@
-#EXTRACCIÓN DE DATOS
+# EXTRACCIÓN DE DATOS
 El objetivo de este código es obtener los datos del acelerometro y el giroscopio a partir del
 Arduino Nano 33 BLE, ya que estos datos permiten conocer el estado del suejuto, más 
 especificamente el movimiento de puntillas mediante la localización de este en el tobillo.
-##Procedimiento
+## Procedimiento
 Para realizar la recolección de los datos den diferentes csv se deben seguir los siguientes pasos:
 1. Cargar el programa en el Arduino Nano 33 BLE.
 2. Colocar el dispositivo en el tobillo mediante cinta.
@@ -13,7 +13,7 @@ Para realizar la recolección de los datos den diferentes csv se deben seguir lo
 7. Para parar pulsar la tecla 't'.
 8. Los datos quedan almacenados en un archivo csv con un id único.
 
-#Funcionamiento del programa "Get_Data.ino"
+# Funcionamiento del programa "Get_Data.ino"
 La secuencia de funcionamiento de este programa es:
 1. Inicialización de las variables, el puerto serie y del sensor "IMU".
 2. Cuando el dispositivo recibe por el puerto serie el comando de "k", este empieza a mandar con
@@ -23,7 +23,7 @@ La secuencia de funcionamiento de este programa es:
    finaliza y se enviar un carácter vacio. Además el led se apaga.
 5. Tras esto se debe esperar 1seg para la siguiente captura de datos.
 
-##Funcionamiento del programa "serial-data-collect-csv.py"
+## Funcionamiento del programa "serial-data-collect-csv.py"
 La secuencia de funcionamiento de este programa es:
 1. Inicialización del puerto serie e inicialización de las variables.
 2. Si se pulsa la tecla 's' se envia por el puerto serie al dipositivo el comando "k"
