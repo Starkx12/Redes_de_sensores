@@ -55,9 +55,7 @@ BBTimer my_t1(BB_TIMER1);
 
 void t1Callback()
 {
-
   send_flag = true; 
-
 }
 
 void setup() {
