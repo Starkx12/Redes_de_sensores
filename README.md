@@ -4,4 +4,6 @@ Este proyecto contiene el trabajo de la asignatura de redes de sensores, prácti
 
 # Datos del autor
 
-#Aut@r: Ignacio Latre Ayen
+#Autor: Ignacio Latre Ayen
+
+
