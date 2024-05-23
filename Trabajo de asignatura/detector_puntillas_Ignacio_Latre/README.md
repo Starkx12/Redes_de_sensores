@@ -19,7 +19,7 @@ El funcionamiento del programa es el siguiente:
 8. Cuando la MEF permanece un tiempo en repsoso se resetea todo para evitar acumular errores.
 9. Se envian los datos recapitulados mediante la comunicación BLE.
 ## Diagrama de funcionamiento
-![img\DIAGRAMA.png](https://github.com/Starkx12/Redes_de_sensores/blob/main/Trabajo%20de%20asignatura/detector_puntillas_Ignacio_Latre/img/DIAGRAMA.png
+![img\DIAGRAMA.png](https://github.com/Starkx12/Redes_de_sensores/blob/main/Trabajo%20de%20asignatura/detector_puntillas_Ignacio_Latre/img/DIAGRAMA%20.png
 )
 
 
