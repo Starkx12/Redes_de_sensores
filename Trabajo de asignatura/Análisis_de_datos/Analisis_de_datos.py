@@ -183,7 +183,7 @@ def get_angle(data,time,split_time) :
 
 select = int(input("¿Que acción quieres hacer? \n-0:Show data \n-1:Show dt data \n-2:Split data \n-3:Test split"))
 if select ==0:
-    excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\3\Puntillas.a3de23c6a901.csv'
+    excel_path = r'C:\Users\Usuario\Desktop\STARKX12\Redes_de_sensores\Trabajo de asignatura\Extracción_de_datos\Datasets\3\Puntillas.a3de23c6a901.csv'
     #excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\Dataset\Dataset\7\Puntillas.56f0f0a705c7.csv'
     time, accX, accY, accZ, gyrX, gyrY, gyrZ = Get_timelapse(excel_path)
     n_smooth = 10
@@ -202,7 +202,7 @@ if select ==0:
         i+=1
         
 elif select==1:
-    excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\3\Puntillas.a3de23c6a901.csv'
+    excel_path = r'C:\Users\Usuario\Desktop\STARKX12\Redes_de_sensores\Trabajo de asignatura\Extracción_de_datos\Datasets\3\Puntillas.a3de23c6a901.csv'
     #excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\Dataset\Dataset\7\Puntillas.56f0f0a705c7.csv'
     time, accX, accY, accZ, gyrX, gyrY, gyrZ = Get_timelapse(excel_path)
     n_smooth = 8
@@ -223,7 +223,7 @@ elif select==1:
         i+=1
         
 elif select ==2:
-    excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\3\Puntillas.a3de23c6a901.csv'
+    excel_path = r'C:\Users\Usuario\Desktop\STARKX12\Redes_de_sensores\Trabajo de asignatura\Extracción_de_datos\Datasets\3\Puntillas.a3de23c6a901.csv'
     #excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\Dataset\Dataset\7\Puntillas.56f0f0a705c7.csv'
     time, accX, accY, accZ, gyrX, gyrY, gyrZ = Get_timelapse(excel_path)
     n_smooth = 5
@@ -252,7 +252,7 @@ elif select ==2:
         print("###############")
     
 elif select ==3:         
-    excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\3\Puntillas.a3de23c6a901.csv'
+    excel_path = r'C:\Users\Usuario\Desktop\STARKX12\Redes_de_sensores\Trabajo de asignatura\Extracción_de_datos\Datasets\3\Puntillas.a3de23c6a901.csv'
     #excel_path = r'C:\Users\Usuario\Desktop\Trabajo edge impulse\Dataset\Dataset\10\Puntillas.fb41b249e346.csv'
     time, accX, accY, accZ, gyrX, gyrY, gyrZ = Get_timelapse(excel_path)        
         
